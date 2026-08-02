@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111311" />
+    <meta name="description" content="A practical, searchable Sublime Text 4 developer cheatsheet for finding files, replacing text, navigating code, and working faster." />
+    <title>Sublime Text Cheatsheet · Build 4200</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#library">Skip to the command library</a>
+    <div class="page-grain" aria-hidden="true"></div>
+
+    <header class="site-header site-width">
+      <a class="brand" href="#top" aria-label="Sublime Text Cheatsheet home">
+        <span class="brand-mark" aria-hidden="true">S/</span>
+        <span class="brand-wordmark">Sublime<span>field guide</span></span>
+      </a>
+      <div class="header-tools">
+        <span class="build-badge"><span class="status-dot" aria-hidden="true"></span> stable · build 4200</span>
+        <div class="platform-switch" role="group" aria-label="Shortcut platform">
+          <button class="platform-button is-active" type="button" data-platform="mac" aria-pressed="true">Mac</button>
+          <button class="platform-button" type="button" data-platform="pc" aria-pressed="false">Win / Linux</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero site-width" id="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>01</span> code search, minus the context switch</p>
+          <h1 id="hero-title">The shortcuts you reach for <em>every day.</em></h1>
+          <p class="hero-intro">A compact, field-tested reference for moving through a codebase, reshaping text, and keeping your build loop close.</p>
+          <div class="hero-meta" aria-label="Cheatsheet summary">
+            <span><strong id="hero-command-count">40+</strong> commands</span>
+            <span><strong>8</strong> workflow lanes</span>
+            <span><strong>01</strong> current stable release</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-orbit orbit-three"></div>
+          <div class="hero-keycap hero-keycap-command">⌘</div>
+          <div class="hero-keycap hero-keycap-slash">/</div>
+          <div class="hero-stamp">ST<br /><span>4200</span></div>
+        </div>
+        <form class="search-panel" id="search-form" role="search">
+          <label for="command-search">Search the field guide</label>
+          <div class="search-input-wrap">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="command-search" name="q" type="search" autocomplete="off" placeholder="Try “folder”, “replace”, or “build”" />
+            <kbd class="search-hint">⌘ K</kbd>
+          </div>
+          <p class="search-help">Search names, descriptions, categories, tags, or shortcuts.</p>
+        </form>
+      </section>
+
+      <nav class="quick-path site-width" id="quick-path" aria-label="Quick workflows">
+        <div class="section-intro">
+          <p class="eyebrow"><span>02</span> start here</p>
+          <h2>Five moves worth memorizing.</h2>
+        </div>
+        <div class="quick-links">
+          <a class="quick-link" href="#find-file">
+            <span class="quick-index">01</span>
+            <span class="quick-copy"><strong>Find a file</strong><small>jump by name</small></span>
+            <kbd>⌘ P</kbd>
+          </a>
+          <a class="quick-link" href="#find-folder">
+            <span class="quick-index">02</span>
+            <span class="quick-copy"><strong>Find in files</strong><small>search a folder</small></span>
+            <kbd>⇧ ⌘ F</kbd>
+          </a>
+          <a class="quick-link" href="#replace">
+            <span class="quick-index">03</span>
+            <span class="quick-copy"><strong>Replace</strong><small>reshape text safely</small></span>
+            <kbd>⌥ ⌘ F</kbd>
+          </a>
+          <a class="quick-link" href="#command-palette">
+            <span class="quick-index">04</span>
+            <span class="quick-copy"><strong>Command Palette</strong><small>find any action</small></span>
+            <kbd>⇧ ⌘ P</kbd>
+          </a>
+          <a class="quick-link" href="#build">
+            <span class="quick-index">05</span>
+            <span class="quick-copy"><strong>Build</strong><small>run the loop</small></span>
+            <kbd>⌘ B</kbd>
+          </a>
+        </div>
+      </nav>
+
+      <section class="library site-width" id="library" aria-labelledby="library-title">
+        <div class="library-heading">
+          <div class="section-intro">
+            <p class="eyebrow"><span>03</span> the command library</p>
+            <h2 id="library-title">Keep your hands in the code.</h2>
+          </div>
+          <p class="library-note">Shortcuts are shown for <strong id="platform-label">Mac</strong>. Toggle above for Windows/Linux.</p>
+        </div>
+        <div class="library-toolbar">
+          <div class="filter-list" role="group" aria-label="Filter commands">
+            <button class="filter-button is-active" type="button" data-category="All" aria-pressed="true">All <span data-category-count="All"></span></button>
+            <button class="filter-button" type="button" data-category="Find &amp; Replace" aria-pressed="false">Find &amp; Replace <span data-category-count="Find &amp; Replace"></span></button>
+            <button class="filter-button" type="button" data-category="Navigate" aria-pressed="false">Navigate <span data-category-count="Navigate"></span></button>
+            <button class="filter-button" type="button" data-category="Edit Faster" aria-pressed="false">Edit Faster <span data-category-count="Edit Faster"></span></button>
+            <button class="filter-button" type="button" data-category="Multi-cursor" aria-pressed="false">Multi-cursor <span data-category-count="Multi-cursor"></span></button>
+            <button class="filter-button" type="button" data-category="Project &amp; Build" aria-pressed="false">Project &amp; Build <span data-category-count="Project &amp; Build"></span></button>
+            <button class="filter-button" type="button" data-category="Git &amp; Diff" aria-pressed="false">Git &amp; Diff <span data-category-count="Git &amp; Diff"></span></button>
+            <button class="filter-button" type="button" data-category="Customize" aria-pressed="false">Customize <span data-category-count="Customize"></span></button>
+            <button class="filter-button" type="button" data-category="Command Line" aria-pressed="false">Command Line <span data-category-count="Command Line"></span></button>
+          </div>
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+        </div>
+        <div class="command-grid" id="command-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-mark" aria-hidden="true">∅</span>
+          <h3>No matching moves.</h3>
+          <p>Try a shorter query, or switch back to <button type="button" data-reset-search>all commands</button>.</p>
+        </div>
+        <noscript>
+          <div class="no-script-note">
+            <strong>This field guide needs JavaScript for its searchable command cards.</strong>
+            <p>You can still use the official references below, or enable JavaScript to browse the shortcuts by platform and workflow.</p>
+          </div>
+        </noscript>
+      </section>
+
+      <section class="field-notes site-width" id="field-notes" aria-labelledby="field-notes-title">
+        <div class="section-intro">
+          <p class="eyebrow"><span>04</span> field notes</p>
+          <h2 id="field-notes-title">Small habits. Fewer detours.</h2>
+        </div>
+        <div class="notes-grid">
+          <article class="note-card note-card-wide">
+            <span class="note-number">A</span>
+            <div>
+              <h3>Search scope is a decision.</h3>
+              <p>Use <strong>Find</strong> for the active file, <strong>Find in Files</strong> for the folders in your window, and <strong>Goto Anything</strong> when you know the shape of the destination more than its exact path.</p>
+            </div>
+          </article>
+          <article class="note-card">
+            <span class="note-number">B</span>
+            <h3>Regex is a tool, not a default.</h3>
+            <p>Turn it on when the shape of the match matters. For a simple rename, plain text is easier to review before you hit Replace All.</p>
+          </article>
+          <article class="note-card">
+            <span class="note-number">C</span>
+            <h3>Let indexing do the walking.</h3>
+            <p>Project symbols, definitions, references, and completions get more useful once the index has finished scanning the window.</p>
+          </article>
+          <article class="note-card note-card-accent">
+            <span class="note-number">D</span>
+            <h3>Build output is a map.</h3>
+            <p>Run a build, then use next and previous result to move through errors instead of hunting them from the top.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer site-width" id="sources">
+      <div class="footer-topline">
+        <p class="eyebrow"><span>05</span> keep exploring</p>
+        <p class="footer-freshness">Checked against Sublime HQ’s current stable listing · 02 Aug 2026</p>
+      </div>
+      <div class="footer-content">
+        <div>
+          <h2>Useful beats complete.</h2>
+          <p>This is a practical selection, not a full command catalog. Correct a shortcut, add a workflow, and keep the field guide close to the code.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.sublimetext.com/download" target="_blank" rel="noreferrer">Sublime HQ download <span>↗</span></a>
+          <a href="https://www.sublimetext.com/docs/" target="_blank" rel="noreferrer">Official documentation <span>↗</span></a>
+          <a href="https://github.com/cskwork/sublime-text-cheatsheet" target="_blank" rel="noreferrer">View the repository <span>↗</span></a>
+        </div>
+      </div>
+      <div class="footer-bottomline">
+        <span>Made for the next search, not the last one.</span>
+        <span>MIT · cskwork · 2026</span>
+      </div>
+    </footer>
+
+    <div class="live-region sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
