@@ -1,12 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#111311" />
+    <meta name="theme-color" content="#f4f0e7" />
     <meta name="description" content="A practical, searchable Sublime Text 4 developer cheatsheet for finding files, replacing text, navigating code, and working faster." />
     <title>Sublime Text Cheatsheet · Build 4200</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        document.documentElement.dataset.theme = window.localStorage.getItem("st-theme") === "dark" ? "dark" : "light";
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -19,11 +26,16 @@
         <span class="brand-wordmark">Sublime<span>field guide</span></span>
       </a>
       <div class="header-tools">
+        <a class="header-link" href="#about">About</a>
         <span class="build-badge"><span class="status-dot" aria-hidden="true"></span> stable · build 4200</span>
         <div class="platform-switch" role="group" aria-label="Shortcut platform">
           <button class="platform-button is-active" type="button" data-platform="mac" aria-pressed="true">Mac</button>
           <button class="platform-button" type="button" data-platform="pc" aria-pressed="false">Win / Linux</button>
         </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle-label" id="theme-toggle-label">Dark mode</span>
+        </button>
       </div>
     </header>
 
@@ -166,9 +178,27 @@
       </section>
     </main>
 
+    <section class="about-section site-width" id="about" aria-labelledby="about-title">
+      <div class="section-intro">
+        <p class="eyebrow"><span>05</span> about this field guide</p>
+        <h2 id="about-title">Useful beats complete.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>A compact, searchable reference for the Sublime Text commands developers reach for most: finding files, reshaping text, navigating symbols, and keeping the build loop close.</p>
+          <p>Shortcuts are checked against Sublime Text’s current stable release, with official sources linked so you can go deeper when a workflow grows.</p>
+        </div>
+        <div class="about-links" aria-label="About links">
+          <a class="about-link" href="https://github.com/cskwork/sublime-text-cheatsheet" target="_blank" rel="noreferrer">View the source on GitHub <span>↗</span></a>
+          <a class="about-link" href="https://www.sublimetext.com/docs/" target="_blank" rel="noreferrer">Read the official documentation <span>↗</span></a>
+          <a class="about-link" href="https://www.sublimetext.com/download" target="_blank" rel="noreferrer">Check the latest stable build <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
     <footer class="site-footer site-width" id="sources">
       <div class="footer-topline">
-        <p class="eyebrow"><span>05</span> keep exploring</p>
+        <p class="eyebrow"><span>06</span> keep exploring</p>
         <p class="footer-freshness">Checked against Sublime HQ’s current stable listing · 02 Aug 2026</p>
       </div>
       <div class="footer-content">

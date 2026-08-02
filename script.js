@@ -499,7 +499,8 @@ const categories = [
 const state = {
   platform: window.localStorage.getItem("st-platform") || "mac",
   category: "All",
-  query: ""
+  query: "",
+  theme: document.documentElement.dataset.theme === "dark" ? "dark" : "light"
 };
 
 const refs = {
@@ -510,7 +511,11 @@ const refs = {
   platformLabel: document.getElementById("platform-label"),
   heroCount: document.getElementById("hero-command-count"),
   liveRegion: document.getElementById("live-region"),
-  searchHint: document.querySelector(".search-hint")
+  searchHint: document.querySelector(".search-hint"),
+  themeToggle: document.getElementById("theme-toggle"),
+  themeIcon: document.getElementById("theme-toggle-icon"),
+  themeLabel: document.getElementById("theme-toggle-label"),
+  themeColor: document.querySelector('meta[name="theme-color"]')
 };
 
 function escapeHtml(value) {
@@ -584,6 +589,15 @@ function renderFilterState() {
   });
 }
 
+function renderThemeState() {
+  const dark = state.theme === "dark";
+  refs.themeToggle.setAttribute("aria-pressed", String(dark));
+  refs.themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  refs.themeIcon.textContent = dark ? "☀" : "☾";
+  refs.themeLabel.textContent = dark ? "Light mode" : "Dark mode";
+  refs.themeColor.setAttribute("content", dark ? "#111311" : "#f4f0e7");
+}
+
 function renderCard(item, index) {
   const shortcut = item[state.platform] || item.mac;
   const copyButton = item.copy
@@ -620,6 +634,7 @@ function render() {
   refs.heroCount.textContent = `${commands.length}`;
   renderPlatformState();
   renderFilterState();
+  renderThemeState();
 }
 
 function announce(message) {
@@ -634,6 +649,14 @@ function setPlatform(platform) {
   window.localStorage.setItem("st-platform", platform);
   render();
   announce(`Shortcuts switched to ${platform === "mac" ? "Mac" : "Windows and Linux"}.`);
+}
+
+function setTheme(theme) {
+  state.theme = theme === "dark" ? "dark" : "light";
+  document.documentElement.dataset.theme = state.theme;
+  window.localStorage.setItem("st-theme", state.theme);
+  renderThemeState();
+  announce(`${state.theme === "dark" ? "Dark" : "Light"} mode enabled.`);
 }
 
 function setCategory(category) {
@@ -696,6 +719,8 @@ function selectCommandText(copyButton) {
 document.querySelectorAll("[data-platform]").forEach((button) => {
   button.addEventListener("click", () => setPlatform(button.dataset.platform));
 });
+
+refs.themeToggle.addEventListener("click", () => setTheme(state.theme === "dark" ? "light" : "dark"));
 
 document.querySelectorAll("[data-category]").forEach((button) => {
   button.addEventListener("click", () => setCategory(button.dataset.category));
