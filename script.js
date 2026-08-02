@@ -658,12 +658,10 @@ function scrollToHash() {
     render();
   }
 
-  window.requestAnimationFrame(() => {
-    const target = document.getElementById(id);
-    if (!target) return;
-    const top = target.getBoundingClientRect().top + window.scrollY - 24;
-    window.scrollTo(0, Math.max(0, top));
-  });
+  const target = document.getElementById(id);
+  if (!target) return;
+  const top = target.getBoundingClientRect().top + window.scrollY - 24;
+  window.scrollTo(0, Math.max(0, top));
 }
 
 async function copyText(text) {
@@ -701,6 +699,16 @@ document.querySelectorAll("[data-platform]").forEach((button) => {
 
 document.querySelectorAll("[data-category]").forEach((button) => {
   button.addEventListener("click", () => setCategory(button.dataset.category));
+});
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href")?.slice(1);
+    if (!id || !commands.some((item) => item.id === id)) return;
+    event.preventDefault();
+    window.history.pushState({}, "", `#${id}`);
+    scrollToHash();
+  });
 });
 
 refs.search.addEventListener("input", (event) => setQuery(event.target.value));
@@ -748,6 +756,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("hashchange", scrollToHash);
+window.addEventListener("popstate", scrollToHash);
 
 renderCategoryCounts();
 render();
