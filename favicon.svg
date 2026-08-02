@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Sublime Text Cheatsheet</title>
+  <rect width="64" height="64" rx="16" fill="#c75b3f" />
+  <path d="M18 20.5 46 12v12L18 32.5zM18 31.5 46 23v12L18 43.5zM18 42.5 46 34v12L18 54.5z" fill="#f5eee3" />
+</svg>
